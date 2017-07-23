@@ -1,0 +1,6 @@
+relationship_chris_ellie:
+  user_one: chris
+  user_two: ellie
+  status: 1
+  action_user: chris
+  relation: immediate_family
