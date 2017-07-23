@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class UserRegistrationsTest < ActionDispatch::IntegrationTest
+class UserTokensTest < ActionDispatch::IntegrationTest
   test "user with valid credentials can log in" do
 
     post "/api/v1/user_token", params:

@@ -2,8 +2,12 @@ chris:
   email: chris.m.zempel@gmail.com
   name: Chris Zempel
   password_digest: <%= BCrypt::Password.create("password", cost: 4) %>
+  created_at: now
+  updated_at: now
 
 ellie:
   email: ellie@example.com
   name: Ellie Zempel
   password_digest: <%= BCrypt::Password.create("password", cost: 4) %>
+  created_at: now
+  updated_at: now
