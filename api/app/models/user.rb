@@ -4,5 +4,5 @@ class User < ApplicationRecord
   validates :email, uniqueness: true, presence: true
   validates :name, presence: true
 
-  has_many :gifts, as: :author
+  has_many :gifts, as: :recipient
 end
