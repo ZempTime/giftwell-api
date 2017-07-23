@@ -1,0 +1,9 @@
+chris:
+  email: chris.m.zempel@gmail.com
+  name: Chris Zempel
+  password_digest: <%= BCrypt::Password.create("password", cost: 4) %>
+
+ellie:
+  email: ellie@example.com
+  name: Ellie Zempel
+  password_digest: <%= BCrypt::Password.create("password", cost: 4) %>
