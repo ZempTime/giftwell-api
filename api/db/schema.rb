@@ -10,17 +10,34 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170723191039) do
+ActiveRecord::Schema.define(version: 20170723202335) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "gifts", force: :cascade do |t|
+    t.string "name"
+    t.string "note"
+    t.string "link"
+    t.integer "position"
+    t.integer "status", default: 0
+    t.bigint "recipient_id"
+    t.bigint "author_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["author_id"], name: "index_gifts_on_author_id"
+    t.index ["recipient_id"], name: "index_gifts_on_recipient_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email"
     t.string "name"
     t.string "password_digest"
+    t.text "note"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "gifts", "users", column: "author_id"
+  add_foreign_key "gifts", "users", column: "recipient_id"
 end
