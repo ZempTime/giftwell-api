@@ -1,7 +1,5 @@
 class User::SignUp < User
 
-  attr_reader :email, :name, :password, :password_confirmation
-
   PERMITTED_PARAMS = [
     :email,
     :name,
@@ -11,7 +9,7 @@ class User::SignUp < User
   ]
 
   # Courtesy http://emailregex.com/
-  EMAIL_REGEXP = /\A([\w+\-].?)+@[a-z\d\-]+(\.[a-z]+)*\.[a-z]+\z/i
+  EMAIL_REGEXP = /\A[^@\s]+@([^@\s]+\.)+[^@\s]+\z/
 
   validates :email, presence: true, uniqueness: true, format: { with: EMAIL_REGEXP }
   validates_presence_of :name

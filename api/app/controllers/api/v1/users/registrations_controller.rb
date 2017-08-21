@@ -1,9 +1,12 @@
 class Api::V1::Users::RegistrationsController < Api::V1::ApiController
+  skip_before_action :authenticate
+
   def create
     @user = User::SignUp.new(registration_params)
 
     if @user.save
-      render json: @user, status: 200
+      jwt = Auth.issue({user: @user.id, name: @user.name})
+      render json: {jwt: jwt}, status: 201
     else
       render json: @user, status: 200, serializer: ActiveModel::Serializer::ErrorSerializer
     end
