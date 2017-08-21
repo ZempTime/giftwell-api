@@ -5,7 +5,10 @@ Rails.application.routes.draw do
         resources :gifts
       end
 
-      post 'user_token' => 'user_token#create'
+      namespace :users do
+        resources :registrations, only: [:create, :update, :destroy]
+        resources :sessions, only: [:create]
+      end
     end
   end
 end

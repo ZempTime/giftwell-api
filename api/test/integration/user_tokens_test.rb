@@ -5,7 +5,7 @@ class UserTokensTest < ActionDispatch::IntegrationTest
 
     post "/api/v1/user_token", params:
       {
-        auth: {
+        user: {
           email: users(:chris).email,
           password: "password"
         }
@@ -18,7 +18,7 @@ class UserTokensTest < ActionDispatch::IntegrationTest
   test "user with invalid credentials can't log in" do
     post "/api/v1/user_token", params:
       {
-        auth: {
+        user: {
           email: "notexist@nowhere.com",
           password: "password"
         }
