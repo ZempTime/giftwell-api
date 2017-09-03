@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170831114526) do
+ActiveRecord::Schema.define(version: 20170723210942) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -84,7 +84,6 @@ ActiveRecord::Schema.define(version: 20170831114526) do
     t.datetime "updated_at", null: false
     t.index ["action_user_id"], name: "index_relationships_on_action_user_id"
     t.index ["relation_id"], name: "index_relationships_on_relation_id"
-    t.index ["user_one_id", "user_two_id"], name: "index_relationships_on_user_one_id_and_user_two_id", unique: true
     t.index ["user_one_id"], name: "index_relationships_on_user_one_id"
     t.index ["user_two_id"], name: "index_relationships_on_user_two_id"
   end

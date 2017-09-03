@@ -1,13 +1,41 @@
 chris:
   email: chris.m.zempel@gmail.com
-  name: Chris Zempel
+  name: chris z
   password_digest: <%= BCrypt::Password.create("password", cost: 4) %>
   created_at: now
   updated_at: now
 
 ellie:
   email: ellie@example.com
-  name: Ellie Zempel
+  name: ellie z
+  password_digest: <%= BCrypt::Password.create("password", cost: 4) %>
+  created_at: now
+  updated_at: now
+
+will:
+  email: will@example.com
+  name: will z
+  password_digest: <%= BCrypt::Password.create("password", cost: 4) %>
+  created_at: now
+  updated_at: now
+
+joe:
+  email: joe@example.com
+  name: joey z
+  password_digest: <%= BCrypt::Password.create("password", cost: 4) %>
+  created_at: now
+  updated_at: now
+
+sue:
+  email: sue@example.com
+  name: sue z
+  password_digest: <%= BCrypt::Password.create("password", cost: 4) %>
+  created_at: now
+  updated_at: now
+
+john:
+  email: john@example.com
+  name: sue z
   password_digest: <%= BCrypt::Password.create("password", cost: 4) %>
   created_at: now
   updated_at: now

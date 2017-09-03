@@ -7,4 +7,15 @@ class ActiveSupport::TestCase
   def json
     JSON.parse(response.body)
   end
+
+  def sign_in(user)
+    post "/api/v1/users/sessions", params: {
+      user: {
+      email: users(:chris).email,
+      password: "password"
+      }
+    }
+
+    json["jwt"]
+  end
 end
