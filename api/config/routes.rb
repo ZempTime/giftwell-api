@@ -9,8 +9,8 @@ Rails.application.routes.draw do
       resources :relationships do
         get :pending_requests,  to: "relationships/pending_requests#index", on: :collection
         get :sent_requests,     to: "relationships/sent_requests#index",    on: :collection
-        put :approve,            to: "relationships/approves#update",        on: :member
-        put :reject,            to: "relationships/rejects#update",         on: :member
+        put :approve,           to: "relationships/approves#update",        on: :member
+        put :decline,           to: "relationships/declines#update",        on: :member
       end
 
       namespace :users do

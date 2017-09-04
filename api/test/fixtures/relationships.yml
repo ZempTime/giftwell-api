@@ -16,7 +16,7 @@ relationship_chris_joe:
   user_one_id: <%= [ActiveRecord::FixtureSet.identify(:chris), ActiveRecord::FixtureSet.identify(:joe)].min %>
   user_two_id: <%= [ActiveRecord::FixtureSet.identify(:chris), ActiveRecord::FixtureSet.identify(:joe)].max %>
   status: 2
-  action_user: chris
+  action_user: joe
   relation: immediate_family
 
 relationship_sue_chris:
