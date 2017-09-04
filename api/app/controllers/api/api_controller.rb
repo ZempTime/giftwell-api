@@ -1,4 +1,4 @@
-class Api::V1::ApiController < ApplicationController
+class Api::ApiController < ApplicationController
   before_action :set_default_format
   before_action :authenticate
 

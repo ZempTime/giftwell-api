@@ -12,7 +12,7 @@ module Relationships
       relationship = relationships(:relationship_sue_chris)
       assert_equal "pending", relationship.status
 
-      put "/api/v1/relationships/#{relationship.id}/decline",
+      put "/api/relationships/#{relationship.id}/decline",
         headers: authorization_header
 
       assert_equal 200, response.status
@@ -26,7 +26,7 @@ module Relationships
       relationship = relationships(:relationship_chris_ellie)
       assert_equal "pending", relationship.status
 
-      put "/api/v1/relationships/#{relationship.id}/decline",
+      put "/api/relationships/#{relationship.id}/decline",
         headers: authorization_header
 
       assert_equal 200, response.status
@@ -39,7 +39,7 @@ module Relationships
       assert_equal users(:joe).id, relationship.action_user_id
       assert_equal "declined", relationship.status
 
-      put "/api/v1/relationships/#{relationship.id}/decline",
+      put "/api/relationships/#{relationship.id}/decline",
         headers: authorization_header
 
       assert_equal 200, response.status

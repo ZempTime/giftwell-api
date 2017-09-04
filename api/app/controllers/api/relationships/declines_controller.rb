@@ -1,4 +1,4 @@
-class Api::V1::Relationships::DeclinesController < Api::V1::ApiController
+class Api::Relationships::DeclinesController < Api::ApiController
   before_action :set_relationship
 
   def update

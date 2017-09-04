@@ -1,4 +1,4 @@
-class Api::V1::Relationships::ApprovesController < Api::V1::ApiController
+class Api::Relationships::ApprovesController < Api::ApiController
   before_action :set_relationship
 
   def update

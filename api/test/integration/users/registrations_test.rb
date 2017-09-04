@@ -4,7 +4,7 @@ module Users
   class RegistrationsTest < ActionDispatch::IntegrationTest
 
     test "user with valid credentials can sign up" do
-      post "/api/v1/users/registrations", params:
+      post "/api/users/registrations", params:
         {
         user: {
           name: "Chris Zempel",
@@ -21,7 +21,7 @@ module Users
     end
 
     test "not matching password confirmation" do
-      post "/api/v1/users/registrations", params:
+      post "/api/users/registrations", params:
         {
         user: {
           name: "Chris Zempel",
@@ -42,7 +42,7 @@ module Users
     end
 
     test "invalid email" do
-      post "/api/v1/users/registrations", params:
+      post "/api/users/registrations", params:
         {
         user: {
           name: "Chris Zempel",

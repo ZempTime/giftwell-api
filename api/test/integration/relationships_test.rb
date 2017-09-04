@@ -11,7 +11,7 @@ class RelationshipsTest < ActionDispatch::IntegrationTest
     refute Relationship.flexible_where(users(:chris), users(:john)).any?, "Expected no relationships to exist between these users."
 
     assert_difference('Relationship.count', 1) do
-      post "/api/v1/relationships",
+      post "/api/relationships",
         params: {
           requested_user_id: users(:john).id
         },
@@ -25,7 +25,7 @@ class RelationshipsTest < ActionDispatch::IntegrationTest
   test "attempting to make a friend request that already exists returns that friend request" do
     assert Relationship.flexible_where(users(:chris), users(:ellie)).any?, "Expected a relationship to exist between these users."
     assert_difference('Relationship.count', 0) do
-      post "/api/v1/relationships",
+      post "/api/relationships",
         params: {
           requested_user_id: users(:ellie).id
         },
@@ -40,7 +40,7 @@ class RelationshipsTest < ActionDispatch::IntegrationTest
     #relationship = relationships(:relationship_chris_ellie)
     #assert_equal relationship.status, "pending"
 
-    #put "/api/v1/relationships/#{relationship.id}/accept",
+    #put "/api/relationships/#{relationship.id}/accept",
       #headers: authorization_header
 
     #assert_equal 200, response.status

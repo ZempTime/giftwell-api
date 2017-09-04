@@ -1,4 +1,4 @@
-class Api::V1::Users::SessionsController < Api::V1::ApiController
+class Api::Users::SessionsController < Api::ApiController
   class User::NotFound < StandardError; end
 
   skip_before_action :authenticate

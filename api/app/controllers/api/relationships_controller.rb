@@ -1,4 +1,4 @@
-class Api::V1::RelationshipsController < Api::V1::ApiController
+class Api::RelationshipsController < Api::ApiController
   before_action :set_requested_user
 
   def create

@@ -4,7 +4,7 @@ module Users
   class SessionsTest < ActionDispatch::IntegrationTest
     test "user with valid credentials can log in" do
 
-      post "/api/v1/users/sessions", params:
+      post "/api/users/sessions", params:
         {
         user: {
           email: users(:chris).email,
@@ -17,7 +17,7 @@ module Users
     end
 
     test "user with invalid credentials can't log in" do
-      post "/api/v1/users/sessions", params:
+      post "/api/users/sessions", params:
         {
         user: {
           email: "notexist@nowhere.com",

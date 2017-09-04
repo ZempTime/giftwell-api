@@ -9,6 +9,8 @@ class Relationship < ApplicationRecord
   validates_uniqueness_of :user_one_id, scope: :user_two_id
   validate :user_one_has_smaller_id
 
+  scope :including_user, -> (user_id) { where(user_one_id: user_id).or(Relationship.where(user_two_id: user_id)) }
+
   def self.flexible_where(one, two)
     one = one.id if one.respond_to?(:id)
     two = two.id if two.respond_to?(:id)
