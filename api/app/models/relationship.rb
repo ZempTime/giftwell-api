@@ -4,7 +4,7 @@ class Relationship < ApplicationRecord
   belongs_to :action_user, class_name: "User"
   belongs_to :relation, required: false
 
-  enum status: { pending: 0, accepted: 1, declined: 2}
+  enum status: { pending: 0, approved: 1, declined: 2}
 
   validates_uniqueness_of :user_one_id, scope: :user_two_id
   validate :user_one_has_smaller_id

@@ -4,9 +4,10 @@ class Api::V1::RelationshipsController < Api::V1::ApiController
   def create
     @relationship = Relationship.flexible_where(current_user, @requested_user).first_or_initialize
     @relationship.action_user = current_user
+    status = @relationship.persisted? ? 200 : 201
 
     if @relationship.save
-      render json: @relationship
+      render json: @relationship, status: status
     else
       render json: @relationship, status: 200, serializer: ActiveModel::Serializer::ErrorSerializer
     end
