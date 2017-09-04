@@ -1,5 +1,11 @@
 class Api::RelationshipsController < Api::ApiController
-  before_action :set_requested_user
+  before_action :set_requested_user, only: [:create]
+
+  def index
+    @relationships = Relationship.involving(current_user.id)
+
+    render json: @relationships
+  end
 
   def create
     @relationship = Relationship.flexible_where(current_user, @requested_user).first_or_initialize
@@ -13,7 +19,18 @@ class Api::RelationshipsController < Api::ApiController
     end
   end
 
-  def set_requested_user
-    @requested_user = User.find(params[:requested_user_id])
+  def destroy
+    @relationship = Relationship.involving(current_user.id).find(params[:id])
+
+    if @relationship.destroy
+      render :nothing, status: :no_content
+    else
+      render json: @relationship, serializer: ActiveModel::Serializer::ErrorSerializer
+    end
   end
+
+  private
+    def set_requested_user
+      @requested_user = User.find(params[:requested_user_id])
+    end
 end

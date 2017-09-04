@@ -36,17 +36,33 @@ class RelationshipsTest < ActionDispatch::IntegrationTest
     assert_equal relationships(:relationship_chris_ellie).id, json["id"]
   end
 
-  #test "reject a friend request" do
-    #relationship = relationships(:relationship_chris_ellie)
-    #assert_equal relationship.status, "pending"
+  test "get all relationships" do
+    expected_relationships = [
+      relationships(:relationship_chris_ellie).id,
+      relationships(:relationship_chris_will).id,
+      relationships(:relationship_chris_joe).id,
+      relationships(:relationship_sue_chris).id
+    ].sort
 
-    #put "/api/relationships/#{relationship.id}/accept",
-      #headers: authorization_header
+    get "/api/relationships",
+      headers: authorization_header
 
-    #assert_equal 200, response.status
-    #assert_equal "accepted", json["status"]
-  #end
-  #test "view pending requests"
-  #test "view pending sent requests"
-  #test "friends list"
+    assert_equal expected_relationships, json.map { |relationship| relationship["id"]}.sort
+  end
+
+  test "user can delete a relationship they're involved in" do
+    assert_difference('Relationship.count', -1) do
+      delete "/api/relationships/#{relationships(:relationship_chris_will).id}",
+        headers: authorization_header
+    end
+  end
+
+  test "user can't delete a relationship they're not involved in" do
+    assert_difference('Relationship.count', 0) do
+      delete "/api/relationships/#{relationships(:relationship_ellie_will).id}",
+        headers: authorization_header
+    end
+
+    assert_equal 404, response.status
+  end
 end

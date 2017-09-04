@@ -2,6 +2,10 @@ class Api::ApiController < ApplicationController
   before_action :set_default_format
   before_action :authenticate
 
+  rescue_from ActiveRecord::RecordNotFound do |exception|
+    render json: {title: "RecordNotFound", message: "Unable to find requested relationship."}, status: :not_found
+  end
+
   def logged_in?
     !!current_user
   end

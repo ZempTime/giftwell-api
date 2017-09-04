@@ -25,3 +25,10 @@ relationship_sue_chris:
   status: 0
   action_user: sue
   relation: immediate_family
+
+relationship_ellie_will:
+  user_one_id: <%= [ActiveRecord::FixtureSet.identify(:ellie), ActiveRecord::FixtureSet.identify(:will)].min %>
+  user_two_id: <%= [ActiveRecord::FixtureSet.identify(:ellie), ActiveRecord::FixtureSet.identify(:will)].max %>
+  status: 1
+  action_user: will
+  relation: immediate_family

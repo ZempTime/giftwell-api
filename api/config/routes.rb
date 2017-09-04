@@ -2,14 +2,15 @@ Rails.application.routes.draw do
   namespace :api do
     resources :users do
       resources :gifts
-      get :friends, to: "relationships#index", on: :member
+      get :friends, to: "relationships/friends#index", on: :member
     end
 
     resources :relationships do
-      get :pending_requests,  to: "relationships/pending_requests#index", on: :collection
-      get :sent_requests,     to: "relationships/sent_requests#index",    on: :collection
-      put :approve,           to: "relationships/approves#update",        on: :member
-      put :decline,           to: "relationships/declines#update",        on: :member
+      get :friends,             to: "relationships/friends#index",            on: :collection
+      get :received_requests,   to: "relationships/received_requests#index",  on: :collection
+      get :sent_requests,       to: "relationships/sent_requests#index",      on: :collection
+      put :approve,             to: "relationships/approves#update",          on: :member
+      put :decline,             to: "relationships/declines#update",          on: :member
     end
 
     namespace :users do
