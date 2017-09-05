@@ -14,7 +14,7 @@ module Relationships
       get "/api/relationships/friends",
         headers: authorization_header
 
-      assert_equal expected_relationships, json.map { |relationship| relationship["id"]}.sort
+      assert_equal expected_relationships, json["data"].map { |relationship| relationship["id"]}.sort
     end
   end
 end

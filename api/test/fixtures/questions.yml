@@ -1,5 +1,5 @@
 one:
-  recipient: chris (User)
-  author_id: ellie (User)
+  recipient: chris
+  author: ellie
   note: "What's your shoe size?"
   answered: false

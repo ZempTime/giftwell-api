@@ -1,17 +1,25 @@
-knife:
+friend_authored:
   name: Sushi Knife
   note: Needs to be really sharp!
   link: https://www.amazon.com/gp/product/B01JFG1030/ref=s9_acsd_top_hd_bw_by2eX_c_x_1_w?pf_rd_m=ATVPDKIKX0DER&pf_rd_s=merchandised-search-4&pf_rd_r=J65R5P9CRV603CB8C7MX&pf_rd_t=101&pf_rd_p=ebe6fcdc-c97e-51a9-bdfe-0196466ec96e&pf_rd_i=14309881
   position: 0
   status: 0
-  recipient: chris (User)
-  author: ellie (User)
+  recipient: chris
+  author: will
 
-tile:
+user_authored:
   name: Tile
   note: for backpack
   link: https://www.amazon.com/Tile/pages/11316243011
   position: 1
   status: 0
-  recipient: chris (User)
-  author: chris (User)
+  recipient: chris
+  author: chris
+
+different_owner:
+  name: Coffee Beans!
+  note: Because coffee is good.
+  link: https://www.coffee.com
+  position: 0
+  recipient: will
+  author: chris

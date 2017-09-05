@@ -1,9 +1,5 @@
 Rails.application.routes.draw do
   namespace :api do
-    resources :users do
-      resources :gifts
-      get :friends, to: "relationships/friends#index", on: :member
-    end
 
     resources :relationships do
       get :friends,             to: "relationships/friends#index",            on: :collection
@@ -11,6 +7,10 @@ Rails.application.routes.draw do
       get :sent_requests,       to: "relationships/sent_requests#index",      on: :collection
       put :approve,             to: "relationships/approves#update",          on: :member
       put :decline,             to: "relationships/declines#update",          on: :member
+    end
+
+    resources :users, only: [] do
+      resources :gifts
     end
 
     namespace :users do

@@ -16,8 +16,8 @@ module Relationships
         headers: authorization_header
 
       assert_equal 200, response.status
-      assert_equal relationship.id, json["id"]
-      assert_equal "declined", json["status"]
+      assert_equal relationship.id, json["data"]["id"].to_i
+      assert_equal "declined", json["data"]["attributes"]["status"]
       relationship.reload
       assert relationship.status, "declined"
     end
@@ -43,9 +43,9 @@ module Relationships
         headers: authorization_header
 
       assert_equal 200, response.status
-      assert_equal relationship.id, json["id"]
-      assert_equal users(:joe).id, json["action_user_id"]
-      assert_equal "declined", json["status"]
+      assert_equal relationship.id, json["data"]["id"].to_i
+      assert_equal users(:joe).id, json["data"]["attributes"]["action_user_id"].to_i
+      assert_equal "declined", json["data"]["attributes"]["status"]
     end
   end
 end

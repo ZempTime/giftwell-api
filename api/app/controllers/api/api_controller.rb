@@ -6,6 +6,14 @@ class Api::ApiController < ApplicationController
     render json: {title: "RecordNotFound", message: "Unable to find requested relationship."}, status: :not_found
   end
 
+  rescue_from Api::GiftError::InvalidUser do |exception|
+    render json: {title: 'GiftError::InvalidUser', message: exception.message}, status: :forbidden
+  end
+
+  rescue_from Api::GiftError::InvalidAuthor do |exception|
+    render json: {title: 'GiftError::InvalidAuthor', message: exception.message}, status: :forbidden
+  end
+
   def logged_in?
     !!current_user
   end

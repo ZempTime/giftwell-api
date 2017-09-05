@@ -33,7 +33,7 @@ class RelationshipsTest < ActionDispatch::IntegrationTest
     end
 
     assert_equal 200, response.status
-    assert_equal relationships(:relationship_chris_ellie).id, json["id"]
+    assert_equal relationships(:relationship_chris_ellie).id, json["data"]["id"].to_i
   end
 
   test "get all relationships" do
@@ -47,7 +47,7 @@ class RelationshipsTest < ActionDispatch::IntegrationTest
     get "/api/relationships",
       headers: authorization_header
 
-    assert_equal expected_relationships, json.map { |relationship| relationship["id"]}.sort
+    assert_equal expected_relationships, json["data"].map { |relationship| relationship["id"].to_i}.sort
   end
 
   test "user can delete a relationship they're involved in" do
@@ -55,6 +55,8 @@ class RelationshipsTest < ActionDispatch::IntegrationTest
       delete "/api/relationships/#{relationships(:relationship_chris_will).id}",
         headers: authorization_header
     end
+
+    assert_equal 204, response.status
   end
 
   test "user can't delete a relationship they're not involved in" do

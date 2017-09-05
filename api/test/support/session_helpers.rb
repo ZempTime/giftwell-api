@@ -2,7 +2,7 @@ module SessionHelpers
   def sign_in(user)
     post "/api/users/sessions", params: {
       user: {
-        email: users(:chris).email,
+        email: user.email,
         password: "password"
       }
     }
