@@ -10,7 +10,9 @@ Rails.application.routes.draw do
     end
 
     resources :users, only: [] do
-      resources :gifts
+      resources :gifts do
+        put :redeem, to: "gifts/redeems#update", on: :member
+      end
     end
 
     namespace :users do

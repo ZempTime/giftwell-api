@@ -22,7 +22,6 @@ class Api::GiftsController < Api::ApiController
     render json: @gifts, rule: rule
   end
 
-
   def create
     @gift = Gift.new(gift_params)
 
