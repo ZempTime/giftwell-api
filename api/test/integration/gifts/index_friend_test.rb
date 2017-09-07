@@ -9,7 +9,7 @@ module Gifts
     end
 
     test "gives back gifts authored by user and friends" do
-      expected_gifts = [gifts(:user_authored).id, gifts(:friend_authored).id].sort
+      expected_gifts = [gifts(:user_authored).id, gifts(:friend_authored).id, gifts(:unredeemed_gift).id, gifts(:redeemed_gift).id].sort
 
       get "/api/users/#{users(:chris).id}/gifts", headers: authorization_header
 

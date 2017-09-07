@@ -23,3 +23,19 @@ different_owner:
   position: 0
   recipient: will
   author: chris
+
+unredeemed_gift:
+  name: Dreary Book
+  note: Needs to be really dreary!
+  position: 0
+  status: 0
+  recipient: chris
+  author: will
+
+redeemed_gift:
+  name: Dreary Book
+  note: Needs to be really dreary!
+  position: 0
+  status: 1
+  recipient: chris
+  author: will

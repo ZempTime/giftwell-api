@@ -1,5 +1,4 @@
 class Relationships::Approve < Relationship
-
   validate :validate_current_user_involved, unless: :already_approved
   validate :validate_previously_pending,    unless: :already_approved
   validate :validate_not_requesting_user,   unless: :already_approved

@@ -12,6 +12,23 @@ class GiftSerializer < ActiveModel::Serializer
     "GiftSerializer::#{rule}".constantize
   end
 
+  module Author
+    def add_fields
+    end
+
+    def remove_fields
+    end
+
+    def add_includes
+    end
+
+    def remove_includes
+    end
+
+    def status
+    end
+  end
+
   AUTHOR = [
     :id,
     :name,
