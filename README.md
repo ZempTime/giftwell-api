@@ -21,6 +21,6 @@
 
 ## Backburner Ideas for later:
 
-Import Amazon Wishlist
-Auto-growth mechanisms, like "invite some of your fb friends" or w/e other integrations
-Venmo Integration
+* Import Amazon Wishlist
+* Auto-growth mechanisms, like "invite some of your fb friends" or w/e other integrations
+* Venmo Integration
