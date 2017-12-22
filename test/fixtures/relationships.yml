@@ -1,0 +1,34 @@
+relationship_chris_ellie:
+  user_one_id: <%= [ActiveRecord::FixtureSet.identify(:chris), ActiveRecord::FixtureSet.identify(:ellie)].min %>
+  user_two_id: <%= [ActiveRecord::FixtureSet.identify(:chris), ActiveRecord::FixtureSet.identify(:ellie)].max%>
+  status: 0
+  action_user: chris
+  relation: immediate_family
+
+relationship_chris_will:
+  user_one_id: <%= [ActiveRecord::FixtureSet.identify(:chris), ActiveRecord::FixtureSet.identify(:will)].min %>
+  user_two_id: <%= [ActiveRecord::FixtureSet.identify(:chris), ActiveRecord::FixtureSet.identify(:will)].max %>
+  status: 1
+  action_user: will
+  relation: immediate_family
+
+relationship_chris_joe:
+  user_one_id: <%= [ActiveRecord::FixtureSet.identify(:chris), ActiveRecord::FixtureSet.identify(:joe)].min %>
+  user_two_id: <%= [ActiveRecord::FixtureSet.identify(:chris), ActiveRecord::FixtureSet.identify(:joe)].max %>
+  status: 2
+  action_user: joe
+  relation: immediate_family
+
+relationship_sue_chris:
+  user_one_id: <%= [ActiveRecord::FixtureSet.identify(:chris), ActiveRecord::FixtureSet.identify(:sue)].min %>
+  user_two_id: <%= [ActiveRecord::FixtureSet.identify(:chris), ActiveRecord::FixtureSet.identify(:sue)].max %>
+  status: 0
+  action_user: sue
+  relation: immediate_family
+
+relationship_ellie_will:
+  user_one_id: <%= [ActiveRecord::FixtureSet.identify(:ellie), ActiveRecord::FixtureSet.identify(:will)].min %>
+  user_two_id: <%= [ActiveRecord::FixtureSet.identify(:ellie), ActiveRecord::FixtureSet.identify(:will)].max %>
+  status: 1
+  action_user: will
+  relation: immediate_family

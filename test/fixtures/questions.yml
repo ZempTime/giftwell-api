@@ -1,0 +1,5 @@
+one:
+  recipient: chris
+  author: ellie
+  note: "What's your shoe size?"
+  answered: false
